@@ -4,11 +4,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_principal"
-            android:icon="@drawable/ic_"
+            android:icon="@drawable/ic_menu_home"
             android:title="Principal" />
         <item
             android:id="@+id/nav_por_semana"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_calendar_semanal"
             android:title="Por semana" />
     </group>
 
@@ -16,9 +16,8 @@
         <menu>
             <item
                 android:id="@+id/nav_acerca"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_menu_acerca"
                 android:title="Acerca de ..." />
         </menu>
     </item>
-
 </menu>
