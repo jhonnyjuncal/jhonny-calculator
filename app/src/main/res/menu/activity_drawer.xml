@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_principal"
+            android:icon="@drawable/ic_"
+            android:title="Principal" />
+        <item
+            android:id="@+id/nav_por_semana"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Por semana" />
+    </group>
+
+    <item android:title="Informacion">
+        <menu>
+            <item
+                android:id="@+id/nav_acerca"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Acerca de ..." />
+        </menu>
+    </item>
+
+</menu>

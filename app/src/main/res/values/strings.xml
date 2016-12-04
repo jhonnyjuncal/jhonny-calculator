@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TimeCalculator</string>
+    <string name="version_app">Versión:</string>
+    <string name="variable_progreso">progreso...</string>
+    <string name="fecha_creacion">Creación:</string>
+    <string name="pais_creacion">País:</string>
+    <string name="pais">España</string>
+    <string name="label_desarrollado_por">Desarrollado por:</string>
+    <string name="label_creador"><a href="https://plus.google.com/+jhonnyjuncal/">Jhonny Juncal Gonzalez</a></string>
+    <string name="txt_salir_1_aviso">Pulse de nuevo para salir</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>
