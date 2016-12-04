@@ -52,7 +52,7 @@ public class AcercaActivity extends DrawerNavigationControl {
 			
 			// fecha de creacion
 			TextView textoFecha = (TextView)findViewById(R.id.acer_textView5);
-			textoFecha.setText("2013-11-04");
+			textoFecha.setText("2015-12-04");
 			
 			// link de mi perfil en google+
 			TextView link = (TextView)findViewById(R.id.acer_textView7);

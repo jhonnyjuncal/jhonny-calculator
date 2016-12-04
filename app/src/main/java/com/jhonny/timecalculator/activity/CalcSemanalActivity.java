@@ -23,7 +23,7 @@ import org.joda.time.Duration;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormatter;
 
-public class CalcSemanalActivity extends DrawerNavigationControl implements NavigationView.OnNavigationItemSelectedListener {
+public class CalcSemanalActivity extends DrawerNavigationControl {
 
     private int idBotonSeleccionado;
     private DateTimeFormatter dateTimeFormatter;

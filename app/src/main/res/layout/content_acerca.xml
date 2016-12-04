@@ -165,7 +165,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/facebook"
+                app:srcCompat="@mipmap/facebook"
                 android:id="@+id/acer_imageView2" />
 
         </LinearLayout>
@@ -195,7 +195,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/google"
+                app:srcCompat="@mipmap/google"
                 android:id="@+id/acer_imageView3" />
 
         </LinearLayout>

@@ -4,19 +4,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_principal"
-            android:icon="@drawable/ic_menu_home"
+            android:icon="@mipmap/ic_menu_home"
             android:title="Principal" />
-        <item
-            android:id="@+id/nav_por_semana"
-            android:icon="@drawable/ic_menu_calendar_semanal"
-            android:title="Por semana" />
     </group>
 
-    <item android:title="Informacion">
+    <item android:title="CALCULADORA">
+        <menu>
+            <item
+                android:id="@+id/nav_por_semana"
+                android:icon="@mipmap/ic_menu_calendar_semanal"
+                android:title="Por semana" />
+        </menu>
+    </item>
+
+    <item android:title="INFORMACION">
         <menu>
             <item
                 android:id="@+id/nav_acerca"
-                android:icon="@drawable/ic_menu_acerca"
+                android:icon="@mipmap/ic_menu_acerca"
                 android:title="Acerca de ..." />
         </menu>
     </item>
