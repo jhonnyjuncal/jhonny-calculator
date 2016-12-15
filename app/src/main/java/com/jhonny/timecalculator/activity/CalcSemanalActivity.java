@@ -2,12 +2,13 @@ package com.jhonny.timecalculator.activity;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,12 +22,42 @@ import com.jhonny.timecalculator.timecalculator.R;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.joda.time.Period;
-import org.joda.time.format.DateTimeFormatter;
 
 public class CalcSemanalActivity extends DrawerNavigationControl {
 
     private int idBotonSeleccionado;
-    private DateTimeFormatter dateTimeFormatter;
+    private final static String FICHERO = "data";
+
+    private String l1_h1;
+    private String l1_m1;
+    private String l1_h2;
+    private String l1_m2;
+    private String l1_h3;
+    private String l1_m3;
+    private String l2_h1;
+    private String l2_m1;
+    private String l2_h2;
+    private String l2_m2;
+    private String l2_h3;
+    private String l2_m3;
+    private String l3_h1;
+    private String l3_m1;
+    private String l3_h2;
+    private String l3_m2;
+    private String l3_h3;
+    private String l3_m3;
+    private String l4_h1;
+    private String l4_m1;
+    private String l4_h2;
+    private String l4_m2;
+    private String l4_h3;
+    private String l4_m3;
+    private String l5_h1;
+    private String l5_m1;
+    private String l5_h2;
+    private String l5_m2;
+    private String l5_h3;
+    private String l5_m3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +74,9 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        leeYMuestraDatosDesdeFichero();
+        calculaTiempo();
     }
 
     @Override
@@ -100,68 +134,99 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
 
         switch(id) {
             case R.id.imageView2:
-                insertaValorTexto(R.id.tv11, horas);
-                insertaValorTexto(R.id.tv12, minutos);
+                l1_h1 = horas;
+                insertaValorTexto(R.id.tv11, l1_h1);
+                l1_m1 = minutos;
+                insertaValorTexto(R.id.tv12, l1_m1);
                 break;
             case R.id.imageView3:
-                insertaValorTexto(R.id.tv13, horas);
-                insertaValorTexto(R.id.tv14, minutos);
+                l1_h2 = horas;
+                insertaValorTexto(R.id.tv13, l1_h2);
+                l1_m2 = minutos;
+                insertaValorTexto(R.id.tv14, l1_m2);
                 break;
             case R.id.imageView4:
-                insertaValorTexto(R.id.tv15, horas);
-                insertaValorTexto(R.id.tv16, minutos);
+                l1_h3 = horas;
+                insertaValorTexto(R.id.tv15, l1_h3);
+                l1_m3 = minutos;
+                insertaValorTexto(R.id.tv16, l1_m3);
                 break;
             case R.id.imageView5:
-                insertaValorTexto(R.id.tv21, horas);
-                insertaValorTexto(R.id.tv22, minutos);
+                l2_h1 = horas;
+                insertaValorTexto(R.id.tv21, l2_h1);
+                l2_m1 = minutos;
+                insertaValorTexto(R.id.tv22, l2_m1);
                 break;
             case R.id.imageView6:
-                insertaValorTexto(R.id.tv23, horas);
-                insertaValorTexto(R.id.tv24, minutos);
+                l2_h2 = horas;
+                insertaValorTexto(R.id.tv23, l2_h2);
+                l2_m2 = minutos;
+                insertaValorTexto(R.id.tv24, l2_m2);
                 break;
             case R.id.imageView7:
-                insertaValorTexto(R.id.tv25, horas);
-                insertaValorTexto(R.id.tv26, minutos);
+                l2_h3 = horas;
+                insertaValorTexto(R.id.tv25, l2_h3);
+                l2_m3 = minutos;
+                insertaValorTexto(R.id.tv26, l2_m3);
                 break;
             case R.id.imageView8:
-                insertaValorTexto(R.id.tv31, horas);
-                insertaValorTexto(R.id.tv32, minutos);
+                l3_h1 = horas;
+                insertaValorTexto(R.id.tv31, l3_h1);
+                l3_m1 = minutos;
+                insertaValorTexto(R.id.tv32, l3_m1);
                 break;
             case R.id.imageView9:
-                insertaValorTexto(R.id.tv33, horas);
-                insertaValorTexto(R.id.tv34, minutos);
+                l3_h2 = horas;
+                insertaValorTexto(R.id.tv33, l3_h2);
+                l3_m2 = minutos;
+                insertaValorTexto(R.id.tv34, l3_m2);
                 break;
             case R.id.imageView10:
-                insertaValorTexto(R.id.tv35, horas);
-                insertaValorTexto(R.id.tv36, minutos);
+                l3_h3 = horas;
+                insertaValorTexto(R.id.tv35, l3_h3);
+                l3_m3 = minutos;
+                insertaValorTexto(R.id.tv36, l3_m3);
                 break;
             case R.id.imageView11:
-                insertaValorTexto(R.id.tv41, horas);
-                insertaValorTexto(R.id.tv42, minutos);
+                l4_h1 = horas;
+                insertaValorTexto(R.id.tv41, l4_h1);
+                l4_m1 = minutos;
+                insertaValorTexto(R.id.tv42, l4_m1);
                 break;
             case R.id.imageView12:
-                insertaValorTexto(R.id.tv43, horas);
-                insertaValorTexto(R.id.tv44, minutos);
+                l4_h2 = horas;
+                insertaValorTexto(R.id.tv43, l4_h2);
+                l4_m2 = minutos;
+                insertaValorTexto(R.id.tv44, l4_m2);
                 break;
             case R.id.imageView13:
-                insertaValorTexto(R.id.tv45, horas);
-                insertaValorTexto(R.id.tv46, minutos);
+                l4_h3 = horas;
+                insertaValorTexto(R.id.tv45, l4_h3);
+                l4_m3 = minutos;
+                insertaValorTexto(R.id.tv46, l4_m3);
                 break;
             case R.id.imageView14:
-                insertaValorTexto(R.id.tv51, horas);
-                insertaValorTexto(R.id.tv52, minutos);
+                l5_h1 = horas;
+                insertaValorTexto(R.id.tv51, l5_h1);
+                l5_m1 = minutos;
+                insertaValorTexto(R.id.tv52, l5_m1);
                 break;
             case R.id.imageView15:
-                insertaValorTexto(R.id.tv53, horas);
-                insertaValorTexto(R.id.tv54, minutos);
+                l5_h2 = horas;
+                insertaValorTexto(R.id.tv53, l5_h2);
+                l5_m2 = minutos;
+                insertaValorTexto(R.id.tv54, l5_m2);
                 break;
             case R.id.imageView16:
-                insertaValorTexto(R.id.tv55, horas);
-                insertaValorTexto(R.id.tv56, minutos);
+                l5_h3 = horas;
+                insertaValorTexto(R.id.tv55, l5_h3);
+                l5_m3 = minutos;
+                insertaValorTexto(R.id.tv56, l5_m3);
                 break;
         }
 
         calculaTiempo();
+        guardaDatosEnFichero();
     }
 
     private void calculaTiempo() {
@@ -252,5 +317,111 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
         textViewTotalHoras.setText(horas);
         TextView textViewTotalMinutos = (TextView)findViewById(R.id.textViewTotalMinutos);
         textViewTotalMinutos.setText(minutos);
+    }
+
+    private void leeYMuestraDatosDesdeFichero() {
+        SharedPreferences sp  = getSharedPreferences(FICHERO, Context.MODE_PRIVATE);
+        l1_h1 = sp.getString("l1_h1", "00");
+        insertaValorTexto(R.id.tv11, l1_h1);
+        l1_m1 = sp.getString("l1_m1", "00");
+        insertaValorTexto(R.id.tv12, l1_m1);
+        l1_h2 = sp.getString("l1_h2", "00");
+        insertaValorTexto(R.id.tv13, l1_h2);
+        l1_m2 = sp.getString("l1_m2", "00");
+        insertaValorTexto(R.id.tv14, l1_m2);
+        l1_h3 = sp.getString("l1_h3", "00");
+        insertaValorTexto(R.id.tv15, l1_h3);
+        l1_m3 = sp.getString("l1_m3", "00");
+        insertaValorTexto(R.id.tv16, l1_m3);
+
+        l2_h1 = sp.getString("l2_h1", "00");
+        insertaValorTexto(R.id.tv21, l2_h1);
+        l2_m1 = sp.getString("l2_m1", "00");
+        insertaValorTexto(R.id.tv22, l2_m1);
+        l2_h2 = sp.getString("l2_h2", "00");
+        insertaValorTexto(R.id.tv23, l2_h2);
+        l2_m2 = sp.getString("l2_m2", "00");
+        insertaValorTexto(R.id.tv24, l2_m2);
+        l2_h3 = sp.getString("l2_h3", "00");
+        insertaValorTexto(R.id.tv25, l2_h3);
+        l2_m3 = sp.getString("l2_m3", "00");
+        insertaValorTexto(R.id.tv26, l2_m3);
+
+        l3_h1 = sp.getString("l3_h1", "00");
+        insertaValorTexto(R.id.tv31, l3_h1);
+        l3_m1 = sp.getString("l3_m1", "00");
+        insertaValorTexto(R.id.tv32, l3_m1);
+        l3_h2 = sp.getString("l3_h2", "00");
+        insertaValorTexto(R.id.tv33, l3_h2);
+        l3_m2 = sp.getString("l3_m2", "00");
+        insertaValorTexto(R.id.tv34, l3_m2);
+        l3_h3 = sp.getString("l3_h3", "00");
+        insertaValorTexto(R.id.tv35, l3_h3);
+        l3_m3 = sp.getString("l3_m3", "00");
+        insertaValorTexto(R.id.tv36, l3_m3);
+
+        l4_h1 = sp.getString("l4_h1", "00");
+        insertaValorTexto(R.id.tv41, l4_h1);
+        l4_m1 = sp.getString("l4_m1", "00");
+        insertaValorTexto(R.id.tv42, l4_m1);
+        l4_h2 = sp.getString("l4_h2", "00");
+        insertaValorTexto(R.id.tv43, l4_h2);
+        l4_m2 = sp.getString("l4_m2", "00");
+        insertaValorTexto(R.id.tv44, l4_m2);
+        l4_h3 = sp.getString("l4_h3", "00");
+        insertaValorTexto(R.id.tv45, l4_h3);
+        l4_m3 = sp.getString("l4_m3", "00");
+        insertaValorTexto(R.id.tv46, l4_m3);
+
+        l5_h1 = sp.getString("l5_h1", "00");
+        insertaValorTexto(R.id.tv51, l5_h1);
+        l5_m1 = sp.getString("l5_m1", "00");
+        insertaValorTexto(R.id.tv52, l5_m1);
+        l5_h2 = sp.getString("l5_h2", "00");
+        insertaValorTexto(R.id.tv53, l5_h2);
+        l5_m2 = sp.getString("l5_m2", "00");
+        insertaValorTexto(R.id.tv54, l5_m2);
+        l5_h3 = sp.getString("l5_h3", "00");
+        insertaValorTexto(R.id.tv55, l5_h3);
+        l5_m3 = sp.getString("l5_m3", "00");
+        insertaValorTexto(R.id.tv56, l5_m3);
+    }
+
+    private void guardaDatosEnFichero() {
+        SharedPreferences sp  = getSharedPreferences(FICHERO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putString("l1_h1", l1_h1);
+        editor.putString("l1_m1", l1_m1);
+        editor.putString("l1_h2", l1_h2);
+        editor.putString("l1_m2", l1_m2);
+        editor.putString("l1_h3", l1_h3);
+        editor.putString("l1_m3", l1_m3);
+        editor.putString("l2_h1", l2_h1);
+        editor.putString("l2_m1", l2_m1);
+        editor.putString("l2_h2", l2_h2);
+        editor.putString("l2_m2", l2_m2);
+        editor.putString("l2_h3", l2_h3);
+        editor.putString("l2_m3", l2_m3);
+        editor.putString("l3_h1", l3_h1);
+        editor.putString("l3_m1", l3_m1);
+        editor.putString("l3_h2", l3_h2);
+        editor.putString("l3_m2", l3_m2);
+        editor.putString("l3_h3", l3_h3);
+        editor.putString("l3_m3", l3_m3);
+        editor.putString("l4_h1", l4_h1);
+        editor.putString("l4_m1", l4_m1);
+        editor.putString("l4_h2", l4_h2);
+        editor.putString("l4_m2", l4_m2);
+        editor.putString("l4_h3", l4_h3);
+        editor.putString("l4_m3", l4_m3);
+        editor.putString("l5_h1", l5_h1);
+        editor.putString("l5_m1", l5_m1);
+        editor.putString("l5_h2", l5_h2);
+        editor.putString("l5_m2", l5_m2);
+        editor.putString("l5_h3", l5_h3);
+        editor.putString("l5_m3", l5_m3);
+
+        editor.commit();
     }
 }
