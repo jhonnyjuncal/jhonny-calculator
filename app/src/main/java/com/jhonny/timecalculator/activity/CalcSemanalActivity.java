@@ -92,7 +92,7 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.principal, menu);
+        getMenuInflater().inflate(R.menu.menu_calculadora_semanal, menu);
         return true;
     }
 
@@ -104,9 +104,10 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.menu_reiniciar) {
+            reiniciaTiempos();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -423,5 +424,104 @@ public class CalcSemanalActivity extends DrawerNavigationControl {
         editor.putString("l5_m3", l5_m3);
 
         editor.commit();
+    }
+
+    private void reiniciaTiempos() {
+        SharedPreferences sp  = getSharedPreferences(FICHERO, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+
+        l1_h1 = "00";
+        insertaValorTexto(R.id.tv11, l1_h1);
+        editor.putString("l1_h1", l1_h1);
+        l1_m1 = "00";
+        insertaValorTexto(R.id.tv12, l1_m1);
+        editor.putString("l1_m1", l1_m1);
+        l1_h2 = "00";
+        insertaValorTexto(R.id.tv13, l1_h2);
+        editor.putString("l1_h2", l1_h2);
+        l1_m2 = "00";
+        insertaValorTexto(R.id.tv14, l1_m2);
+        editor.putString("l1_m2", l1_m2);
+        l1_h3 = "00";
+        insertaValorTexto(R.id.tv15, l1_h3);
+        editor.putString("l1_h3", l1_h3);
+        l1_m3 = "00";
+        insertaValorTexto(R.id.tv16, l1_m3);
+        editor.putString("l1_m3", l1_m3);
+        l2_h1 = "00";
+        insertaValorTexto(R.id.tv21, l2_h1);
+        editor.putString("l2_h1", l2_h1);
+        l2_m1 = "00";
+        insertaValorTexto(R.id.tv22, l2_m1);
+        editor.putString("l2_m1", l2_m1);
+        l2_h2 = "00";
+        insertaValorTexto(R.id.tv23, l2_h2);
+        editor.putString("l2_h2", l2_h2);
+        l2_m2 = "00";
+        insertaValorTexto(R.id.tv24, l2_m2);
+        editor.putString("l2_m2", l2_m2);
+        l2_h3 = "00";
+        insertaValorTexto(R.id.tv25, l2_h3);
+        editor.putString("l2_h3", l2_h3);
+        l2_m3 = "00";
+        insertaValorTexto(R.id.tv26, l2_m3);
+        editor.putString("l2_m3", l2_m3);
+        l3_h1 = "00";
+        insertaValorTexto(R.id.tv31, l3_h1);
+        editor.putString("l3_h1", l3_h1);
+        l3_m1 = "00";
+        insertaValorTexto(R.id.tv32, l3_m1);
+        editor.putString("l3_m1", l3_m1);
+        l3_h2 = "00";
+        insertaValorTexto(R.id.tv33, l3_h2);
+        editor.putString("l3_h2", l3_h2);
+        l3_m2 = "00";
+        insertaValorTexto(R.id.tv34, l3_m2);
+        editor.putString("l3_m2", l3_m2);
+        l3_h3 = "00";
+        insertaValorTexto(R.id.tv35, l3_h3);
+        editor.putString("l3_h3", l3_h3);
+        l3_m3 = "00";
+        insertaValorTexto(R.id.tv36, l3_m3);
+        editor.putString("l3_m3", l3_m3);
+        l4_h1 = "00";
+        insertaValorTexto(R.id.tv41, l4_h1);
+        editor.putString("l4_h1", l4_h1);
+        l4_m1 = "00";
+        insertaValorTexto(R.id.tv42, l4_m1);
+        editor.putString("l4_m1", l4_m1);
+        l4_h2 = "00";
+        insertaValorTexto(R.id.tv43, l4_h2);
+        editor.putString("l4_h2", l4_h2);
+        l4_m2 = "00";
+        insertaValorTexto(R.id.tv44, l4_m2);
+        editor.putString("l4_m2", l4_m2);
+        l4_h3 = "00";
+        insertaValorTexto(R.id.tv45, l4_h3);
+        editor.putString("l4_h3", l4_h3);
+        l4_m3 = "00";
+        insertaValorTexto(R.id.tv46, l4_m3);
+        editor.putString("l4_m3", l4_m3);
+        l5_h1 = "00";
+        insertaValorTexto(R.id.tv51, l5_h1);
+        editor.putString("l5_h1", l5_h1);
+        l5_m1 = "00";
+        insertaValorTexto(R.id.tv52, l5_m1);
+        editor.putString("l5_m1", l5_m1);
+        l5_h2 = "00";
+        insertaValorTexto(R.id.tv53, l5_h2);
+        editor.putString("l5_h2", l5_h2);
+        l5_m2 = "00";
+        insertaValorTexto(R.id.tv54, l5_m2);
+        editor.putString("l5_m2", l5_m2);
+        l5_h3 = "00";
+        insertaValorTexto(R.id.tv55, l5_h3);
+        editor.putString("l5_h3", l5_h3);
+        l5_m3 = "00";
+        insertaValorTexto(R.id.tv56, l5_m3);
+        editor.putString("l5_m3", l5_m3);
+
+        editor.commit();
+        calculaTiempo();
     }
 }
