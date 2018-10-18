@@ -10,5 +10,6 @@
     <string name="txt_salir_1_aviso">Pulse de nuevo para salir</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="content_description_img_back">Imagen de fondo de la pantalla inicial</string>
+    <string name="text_calc_by_week">Calculadora semanal</string>
 </resources>
