@@ -3,13 +3,8 @@ package com.jhonny.timecalculator.component;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.Button;
 
-/**
- * Created by praja on 17-May-17.
- */
-
-public class Button_Roboto_Medium extends Button {
+public class Button_Roboto_Medium extends android.support.v7.widget.AppCompatButton {
 
     public Button_Roboto_Medium(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -28,7 +23,7 @@ public class Button_Roboto_Medium extends Button {
 
     private void init() {
         if (!isInEditMode()) {
-            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular.ttf");
+            Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular.otf");
             setTypeface(tf);
         }
     }
